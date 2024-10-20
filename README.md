@@ -16,6 +16,10 @@ I use nix-darwin to manage my system. This allows me to rebuild the state as and
 - [This great blog post by Dhananjay Balan](https://blog.dbalan.in/blog/2024/03/25/boostrap-a-macos-machine-with-nix/index.html)
 - [How to auto refresh all (most?) macOS settings after applying flake](https://medium.com/@zmre/nix-darwin-quick-tip-activate-your-preferences-f69942a93236)
 
+## TODO
+
+- [ ] Investigate nix-colors pkg (for settings consistent colours across apps)
+
 ## Setting up the system
 
 1. Install xcode dev tools.
