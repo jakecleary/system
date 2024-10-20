@@ -5,6 +5,7 @@
   # List packages installed in system profile
   environment.systemPackages = with pkgs;
   [ 
+    gh
     git
     gleam
     hack-font
