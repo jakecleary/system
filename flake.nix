@@ -27,8 +27,16 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask }:
-  {
+  outputs = inputs@{ 
+    homebrew-bundle,
+    homebrew-cask, 
+    homebrew-core, 
+    nix-darwin, 
+    nix-homebrew, 
+    nixpkgs, 
+    self,
+    ...
+  }: {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mini
     darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {

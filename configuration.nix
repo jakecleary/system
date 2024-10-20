@@ -18,16 +18,17 @@
     vscode
   ];
 
-  # # homebrew config
-  # homebrew = {
-  # enable = true;
-  # onActivation.cleanup = "zap";
-  # casks = [
-  #   "bitwarden"
-  #   "google-chrome"
-  #   "whatsapp"
-  # ];
-  # };
+  # homebrew config
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "zap";
+    casks = [
+      "bitwarden"
+      "google-chrome"
+      "sublime-merge"
+      "whatsapp"
+    ];
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
