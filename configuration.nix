@@ -7,6 +7,7 @@
   [ 
     gh
     git
+    git-credential-manager
     gleam
     hack-font
     kitty
