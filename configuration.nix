@@ -11,14 +11,11 @@
     gh
     git
     gleam
-    hack-font
     kitty
-    mkalias
     neofetch
     obsidian
     raycast
     spotify
-    vim
     vscode
   ];
 

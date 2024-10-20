@@ -3,15 +3,19 @@
   # The latest version as of time of me setting this up
   home.stateVersion = "24.05";
 
+  home.username = "jake";
+  home.homeDirectory = "/Users/jake";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # Packages
   home.packages = with pkgs;
   [
-    vim
+    (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     helix
-    (nerdfonts.override { fonts = [ "FiraCode" "Hack" "Hermit" ]; })
+    vim
+    zsh
   ];
 
   # Manage dotfiles.
@@ -53,6 +57,12 @@
       prompt = "enabled";
       version = 1;
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
   };
 
   # You can also manage environment variables but you will have to manually
