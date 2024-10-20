@@ -13,9 +13,17 @@
   home.packages = with pkgs;
   [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    gh
+    git
+    gleam
     helix
-    vim
-    zsh
+    kitty
+    neofetch
+    obsidian
+    raycast
+    spotify
+    starship
+    vscode
   ];
 
   # Manage dotfiles.

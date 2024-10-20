@@ -7,16 +7,10 @@
   ##############################
 
   environment.systemPackages = with pkgs;
-  [ 
-    gh
-    git
-    gleam
-    kitty
-    neofetch
-    obsidian
-    raycast
-    spotify
-    vscode
+  [
+    fish
+    zsh
+    vim
   ];
 
   # System wide homebrew packages
