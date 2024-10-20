@@ -101,6 +101,8 @@
 
   # Reduce transparency
   system.defaults.universalaccess.reduceTransparency = true;
+  # Enlarge the mouse cursor
+  system.defaults.universalaccess.mouseDriverCursorSize = 2.0;
 
   # Tell OS to check for new settings after applying any changes
   ##############################################################
