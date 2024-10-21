@@ -114,10 +114,6 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;  # default shell on catalina
-  # programs.fish.enable = true;
-
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
@@ -125,10 +121,17 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  # My user
+  # Setup user with fish shell
   users.users.jake = {
+    uid = 501;
     name = "jake";
     home = "/Users/jake";
-    shell = "zsh";
+    shell = pkgs.fish;
   };
+  users.knownUsers = ["jake"];
+
+  # Create /etc/zshrc that loads the nix-darwin environment.
+  programs.zsh.enable = true;
+  programs.fish.enable = true;
+  environment.shells = [pkgs.fish];
 }
