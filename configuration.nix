@@ -11,6 +11,7 @@
     fish
     zsh
     vim
+    kitty
   ];
 
   # System wide homebrew packages

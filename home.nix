@@ -17,7 +17,6 @@
     git
     gleam
     helix
-    kitty
     neofetch
     obsidian
     raycast
