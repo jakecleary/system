@@ -34,7 +34,7 @@
     };
   };
 
-  outputs = inputs@{ 
+  outputs = {
     home-manager,
     homebrew-bundle,
     homebrew-cask, 
