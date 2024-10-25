@@ -23,6 +23,7 @@
     casks = [
       "bitwarden"
       "google-chrome"
+      "pocket-casts"
       "sublime-merge"
       "whatsapp"
     ];
