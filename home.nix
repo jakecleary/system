@@ -131,4 +131,11 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+  # Custom PATH
+  #############
+
+  home.sessionPath = [
+    "/Applications/Sublime Merge.app/Contents/SharedSupport/bin" # allow using Sublime Merge's 'smerge' command
+  ];
 }
