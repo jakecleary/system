@@ -83,6 +83,8 @@
   programs.kitty = {
     enable = true;
     settings = {
+      shell = "${pkgs.fish}/bin/fish --login --interactive";
+
       # fonts
       font_family = "Hack";
       bold_font = "auto";
