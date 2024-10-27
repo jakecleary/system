@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nix-colors, ... }:
 {
   # The latest version as of time of me setting this up
   home.stateVersion = "24.05";
@@ -8,6 +8,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Colour scheme
+  ###############
+
+  imports = [
+    nix-colors.homeManagerModules.default
+  ];
+
+  # colour scheme IDs taken from:
+  # https://github.com/tinted-theming/base16-schemes
+  # Simply take the filename (without the .yaml suffix)
+  colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
 
   # Packages
   home.packages = with pkgs;
@@ -95,28 +107,41 @@
       adjust_column_width = 0;
       disable_ligatures = "never";
 
-      # theme - gruvbox dark
-      background = "#282828";
-      foreground = "#ebdbb2";
-      cursor = "#928374";
-      selection_foreground = "#928374";
-      selection_background = "#3c3836";
-      color0 = "#282828";
-      color8 = "#928374";
-      color1 = "#cc241d";
-      color9 = "#fb4934";
-      color2 = "#98971a";
-      color10 = "#b8bb26";
-      color3 = "#d79921";
-      color11 = "#fabd2d";
-      color4 = "#458588";
-      color12 = "#83a598";
-      color5 = "#b16286";
-      color13 = "#d3869b";
-      color6 = "#689d6a";
-      color14 = "#8ec07c";
-      color7 = "#a89984";
-      color15 = "#928374";
+      # theme
+      #######
+      background = "#${config.colorScheme.palette.base00}";
+      foreground = "#${config.colorScheme.palette.base05}";
+      selection_background = "#${config.colorScheme.palette.base05}";
+      selection_foreground = "#${config.colorScheme.palette.base00}";
+      url_color = "#${config.colorScheme.palette.base04}";
+      cursor = "#${config.colorScheme.palette.base05}";
+      cursor_text_color = "#${config.colorScheme.palette.base00}";
+      active_border_color = "#${config.colorScheme.palette.base03}";
+      inactive_border_color = "#${config.colorScheme.palette.base01}";
+      active_tab_background = "#${config.colorScheme.palette.base00}";
+      active_tab_foreground = "#${config.colorScheme.palette.base05}";
+      inactive_tab_background = "#${config.colorScheme.palette.base01}";
+      inactive_tab_foreground = "#${config.colorScheme.palette.base04}";
+      tab_bar_background = "#${config.colorScheme.palette.base01}";
+      macos_titlebar_color = "#${config.colorScheme.palette.base00}";
+      # normal
+      color0 = "#${config.colorScheme.palette.base00}";
+      color1 = "#${config.colorScheme.palette.base08}";
+      color2 = "#${config.colorScheme.palette.base0B}";
+      color3 = "#${config.colorScheme.palette.base0A}";
+      color4 = "#${config.colorScheme.palette.base0D}";
+      color5 = "#${config.colorScheme.palette.base0E}";
+      color6 = "#${config.colorScheme.palette.base0C}";
+      color7 = "#${config.colorScheme.palette.base05}";
+      # bright
+      color8 = "#${config.colorScheme.palette.base03}";
+      color9 = "#${config.colorScheme.palette.base09}";
+      color10 = "#${config.colorScheme.palette.base01}";
+      color11 = "#${config.colorScheme.palette.base02}";
+      color12 = "#${config.colorScheme.palette.base04}";
+      color13 = "#${config.colorScheme.palette.base06}";
+      color14 = "#${config.colorScheme.palette.base0F}";
+      color15 = "#${config.colorScheme.palette.base07}";
     };
   };
 

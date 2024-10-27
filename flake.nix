@@ -32,6 +32,8 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
@@ -39,6 +41,7 @@
     homebrew-bundle,
     homebrew-cask, 
     homebrew-core, 
+    nix-colors,
     nix-darwin, 
     nix-homebrew, 
     nixpkgs, 
@@ -75,6 +78,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.jake = import ./home.nix;
+          home-manager.extraSpecialArgs = { inherit nix-colors; };
         }
       ];
     };
