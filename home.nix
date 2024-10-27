@@ -95,6 +95,7 @@
   programs.kitty = {
     enable = true;
     settings = {
+      # configure kitty to log in to fish on boot
       shell = "${pkgs.fish}/bin/fish --login --interactive";
 
       # fonts
