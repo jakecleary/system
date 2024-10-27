@@ -19,7 +19,8 @@
   # colour scheme IDs taken from:
   # https://github.com/tinted-theming/base16-schemes
   # Simply take the filename (without the .yaml suffix)
-  colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
+  # colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
+  colorScheme = nix-colors.colorSchemes.gruvbox-light-soft;
 
   # Packages
   home.packages = with pkgs;
@@ -94,7 +95,7 @@
 
   programs.kitty = {
     enable = true;
-    settings = {
+    settings = with config.colorScheme.palette; {
       # configure kitty to log in to fish on boot
       shell = "${pkgs.fish}/bin/fish --login --interactive";
 
@@ -110,39 +111,39 @@
 
       # theme
       #######
-      background = "#${config.colorScheme.palette.base00}";
-      foreground = "#${config.colorScheme.palette.base05}";
-      selection_background = "#${config.colorScheme.palette.base05}";
-      selection_foreground = "#${config.colorScheme.palette.base00}";
-      url_color = "#${config.colorScheme.palette.base04}";
-      cursor = "#${config.colorScheme.palette.base05}";
-      cursor_text_color = "#${config.colorScheme.palette.base00}";
-      active_border_color = "#${config.colorScheme.palette.base03}";
-      inactive_border_color = "#${config.colorScheme.palette.base01}";
-      active_tab_background = "#${config.colorScheme.palette.base00}";
-      active_tab_foreground = "#${config.colorScheme.palette.base05}";
-      inactive_tab_background = "#${config.colorScheme.palette.base01}";
-      inactive_tab_foreground = "#${config.colorScheme.palette.base04}";
-      tab_bar_background = "#${config.colorScheme.palette.base01}";
-      macos_titlebar_color = "#${config.colorScheme.palette.base00}";
+      background = "#${base00}";
+      foreground = "#${base05}";
+      selection_background = "#${base05}";
+      selection_foreground = "#${base00}";
+      url_color = "#${base04}";
+      cursor = "#${base05}";
+      cursor_text_color = "#${base00}";
+      active_border_color = "#${base03}";
+      inactive_border_color = "#${base01}";
+      active_tab_background = "#${base00}";
+      active_tab_foreground = "#${base05}";
+      inactive_tab_background = "#${base01}";
+      inactive_tab_foreground = "#${base04}";
+      tab_bar_background = "#${base01}";
+      macos_titlebar_color = "#${base00}";
       # normal
-      color0 = "#${config.colorScheme.palette.base00}";
-      color1 = "#${config.colorScheme.palette.base08}";
-      color2 = "#${config.colorScheme.palette.base0B}";
-      color3 = "#${config.colorScheme.palette.base0A}";
-      color4 = "#${config.colorScheme.palette.base0D}";
-      color5 = "#${config.colorScheme.palette.base0E}";
-      color6 = "#${config.colorScheme.palette.base0C}";
-      color7 = "#${config.colorScheme.palette.base05}";
+      color0 = "#${base00}";
+      color1 = "#${base08}";
+      color2 = "#${base0B}";
+      color3 = "#${base0A}";
+      color4 = "#${base0D}";
+      color5 = "#${base0E}";
+      color6 = "#${base0C}";
+      color7 = "#${base05}";
       # bright
-      color8 = "#${config.colorScheme.palette.base03}";
-      color9 = "#${config.colorScheme.palette.base09}";
-      color10 = "#${config.colorScheme.palette.base01}";
-      color11 = "#${config.colorScheme.palette.base02}";
-      color12 = "#${config.colorScheme.palette.base04}";
-      color13 = "#${config.colorScheme.palette.base06}";
-      color14 = "#${config.colorScheme.palette.base0F}";
-      color15 = "#${config.colorScheme.palette.base07}";
+      color8 = "#${base03}";
+      color9 = "#${base09}";
+      color10 = "#${base01}";
+      color11 = "#${base02}";
+      color12 = "#${base04}";
+      color13 = "#${base06}";
+      color14 = "#${base0F}";
+      color15 = "#${base07}";
     };
   };
 
