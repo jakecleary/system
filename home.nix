@@ -20,7 +20,7 @@
   # https://github.com/tinted-theming/base16-schemes
   # Simply take the filename (without the .yaml suffix)
   # colorScheme = nix-colors.colorSchemes.catppuccin-macchiato;
-  colorScheme = nix-colors.colorSchemes.gruvbox-light-soft;
+  colorScheme = nix-colors.colorSchemes.gruvbox-dark-soft;
 
   # Packages
   home.packages = with pkgs;
@@ -144,6 +144,17 @@
       color13 = "#${base06}";
       color14 = "#${base0F}";
       color15 = "#${base07}";
+    };
+  };
+
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "gruvbox_dark_soft";
+      editor = {
+        line-number = "relative";
+        lsp.display-messages = true;
+      };
     };
   };
 
