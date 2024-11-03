@@ -29,6 +29,7 @@
     gh
     git
     gleam
+    gnupg
     helix
     neofetch
     obsidian
@@ -59,6 +60,10 @@
     enable = true;
     userName = "Jake Cleary";
     userEmail = "shout@jakecleary.net";
+    signing = {
+      signByDefault = true;
+      key = "6192E5CC28B8FA7EF5F3775F37265B1E496C92A2";
+    };
     extraConfig = {
       github.user = "jakecleary";
       init = { defaultBranch = "master"; };
