@@ -20,6 +20,8 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
+    # Makse sure nix-darwin.homebrew is aware of all declared taps (otherwise it tries to delete them!)
+    taps = builtins.attrNames config.nix-homebrew.taps;
     casks = [
       "bitwarden"
       "google-chrome"
