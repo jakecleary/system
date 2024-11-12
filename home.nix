@@ -108,7 +108,7 @@
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";
-      font_size = 18.0;
+      font_size = "18.0";
       adjust_line_height = "150%";
       adjust_column_width = 0;
       disable_ligatures = "never";
