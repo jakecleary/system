@@ -152,6 +152,22 @@
     };
   };
 
+  programs.vscode = {
+    enable = true;
+    enableExtensionUpdateCheck = false;
+    enableUpdateCheck = false;
+    mutableExtensionsDir = false;
+    userSettings = {
+      "[nix]"."editor.tabSize" = 2;
+      "editor.fontFamily" = "Hack";
+      "editor.fontSize" = 18;
+      "editor.lineHeight" = 1.4;
+    };
+    extensions = [ 
+      pkgs.vscode-extensions.bbenoist.nix 
+    ];
+  };
+
   programs.helix = {
     enable = true;
     settings = {
