@@ -33,7 +33,6 @@
     helix
     neofetch
     obsidian
-    raycast
     spotify
     starship
     vscode

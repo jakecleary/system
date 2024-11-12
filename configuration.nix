@@ -26,6 +26,7 @@
       "bitwarden"
       "google-chrome"
       "pocket-casts"
+      "raycast"
       "sublime-merge"
       "whatsapp"
     ];
