@@ -31,6 +31,7 @@
     gleam
     gnupg
     helix
+    mas
     neofetch
     obsidian
     spotify
