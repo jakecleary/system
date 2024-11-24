@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }: 
+{ pkgs, inputs, config, lib, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+  };
+in
 {
   # Allow unfree pkgs
   nixpkgs.config.allowUnfree = true;
@@ -8,10 +13,8 @@
 
   environment.systemPackages = with pkgs;
   [
-    fish
     zsh
     vim
-    kitty
   ];
 
   # System wide homebrew packages

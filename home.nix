@@ -1,4 +1,9 @@
-{ config, lib, pkgs, nix-colors, ... }:
+{ config, lib, pkgs, nixpkgs-unstable, nix-colors, ... }:
+let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.system;
+  };
+in
 {
   # The latest version as of time of me setting this up
   home.stateVersion = "24.05";
@@ -26,9 +31,9 @@
   home.packages = with pkgs;
   [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    fish
     gh
     git
-    gleam
     gnupg
     helix
     mas
@@ -36,6 +41,8 @@
     obsidian
     spotify
     starship
+    unstable.gleam
+    unstable.kitty
     vscode
   ];
 
@@ -100,6 +107,7 @@
 
   programs.kitty = {
     enable = true;
+    package = unstable.kitty;
     settings = with config.colorScheme.palette; {
       # configure kitty to log in to fish on boot
       shell = "${pkgs.fish}/bin/fish --login --interactive";

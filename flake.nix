@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -12,6 +13,11 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nix-homebrew = {
@@ -38,6 +44,7 @@
 
   outputs = {
     home-manager,
+    home-manager-unstable,
     homebrew-bundle,
     homebrew-cask, 
     homebrew-core, 
@@ -45,6 +52,7 @@
     nix-darwin, 
     nix-homebrew, 
     nixpkgs, 
+    nixpkgs-unstable,
     self,
     ...
   }: {
@@ -78,9 +86,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.jake = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit nix-colors; };
+          home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable; };
         }
       ];
+      inputs = { inherit nix-darwin nixpkgs nixpkgs-unstable; };
     };
 
     # Expose the package set, including overlays, for convenience.
