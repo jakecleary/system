@@ -32,6 +32,7 @@ in
       "raycast"
       "sublime-merge"
       "whatsapp"
+      "zoom"
     ];
   };
 
