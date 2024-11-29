@@ -31,6 +31,8 @@ in
   home.packages = with pkgs;
   [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    bat
+    eza
     fish
     gh
     git
@@ -45,6 +47,7 @@ in
     unstable.gleam
     unstable.kitty
     vscode
+    zoxide
   ];
 
   # Manage dotfiles.
@@ -121,6 +124,10 @@ in
   };
 
   programs.starship = {
+    enable = true;
+  };
+
+  programs.zoxide = {
     enable = true;
   };
 
