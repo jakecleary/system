@@ -121,6 +121,11 @@ in
 
   programs.fish = {
     enable = true;
+    shellAliases = {
+      g = "git";
+      cat = "bat";
+      ls = "eza";
+    };
   };
 
   programs.starship = {
