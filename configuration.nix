@@ -30,6 +30,7 @@ in
       "google-chrome"
       "pocket-casts"
       "raycast"
+      "rekordbox"
       "sublime-merge"
       "whatsapp"
       "zoom"
