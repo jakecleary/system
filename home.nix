@@ -32,6 +32,7 @@ in
   [
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     bat
+    discord
     eza
     fish
     gh
