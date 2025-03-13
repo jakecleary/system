@@ -46,7 +46,6 @@ in
     spotify
     starship
     unstable.gleam
-    unstable.kitty
     vscode
     zoxide
   ];
@@ -139,7 +138,7 @@ in
 
   programs.kitty = {
     enable = true;
-    package = unstable.kitty;
+    package = pkgs.kitty;
     settings = with config.colorScheme.palette; {
       # configure kitty to log in to fish on boot
       shell = "${pkgs.fish}/bin/fish --login --interactive";
