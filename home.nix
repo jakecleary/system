@@ -45,7 +45,6 @@ in
     pinentry_mac
     spotify
     starship
-    unstable.gleam
     vscode
     zoxide
   ];
