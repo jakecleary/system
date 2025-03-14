@@ -202,7 +202,9 @@ in
       "editor.lineHeight" = 1.4;
     };
     extensions = [ 
-      pkgs.vscode-extensions.bbenoist.nix 
+      pkgs.vscode-extensions.bbenoist.nix
+      pkgs.vscode-extensions.gleam.gleam
+      pkgs.vscode-extensions.tamasfe.even-better-toml
     ];
   };
 
