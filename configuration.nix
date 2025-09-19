@@ -31,6 +31,7 @@ in
     casks = [
       "bitwarden"
       "google-chrome"
+      "onedrive"
       "pocket-casts"
       "raycast"
       "rekordbox"
