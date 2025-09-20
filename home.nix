@@ -193,20 +193,22 @@ in
 
   programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = false;
-    enableUpdateCheck = false;
     mutableExtensionsDir = false;
-    userSettings = {
-      "[nix]"."editor.tabSize" = 2;
-      "editor.fontFamily" = "Hack";
-      "editor.fontSize" = 18;
-      "editor.lineHeight" = 1.4;
+    profiles.default = {
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+      userSettings = {
+        "[nix]"."editor.tabSize" = 2;
+        "editor.fontFamily" = "Hack";
+        "editor.fontSize" = 18;
+        "editor.lineHeight" = 1.4;
+      };
+      extensions = [ 
+        pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.gleam.gleam
+        pkgs.vscode-extensions.tamasfe.even-better-toml
+      ];
     };
-    extensions = [ 
-      pkgs.vscode-extensions.bbenoist.nix
-      pkgs.vscode-extensions.gleam.gleam
-      pkgs.vscode-extensions.tamasfe.even-better-toml
-    ];
   };
 
   programs.helix = {
