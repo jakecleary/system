@@ -52,6 +52,7 @@ in
     zoxide
   ] ++ [
     unstable.msedit
+    unstable.jujutsu
   ];
 
   # Manage dotfiles.
@@ -92,6 +93,22 @@ in
       parent = "show-branch --merge-base";
     };
     diff-so-fancy.enable = true;
+  };
+
+  programs.jujutsu = {
+    enable = true;
+    package = unstable.jujutsu;
+    settings = {
+      user = {
+        name = bio.persona.name;
+        email = bio.persona.email;
+      };
+      signing = {
+        sign-all = true;
+        backend = "gpg";
+        key = bio.persona.signingKey;
+      };
+    };
   };
 
   programs.gpg = {
