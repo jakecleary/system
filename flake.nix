@@ -91,8 +91,5 @@
       ];
       inputs = { inherit nix-darwin nixpkgs nixpkgs-unstable; };
     };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."mini".pkgs;
   };
 }
