@@ -49,6 +49,7 @@ in
     pinentry_mac
     spotify
     starship
+    tldr
     vscode
     zoxide
   ] ++ [
