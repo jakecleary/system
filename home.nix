@@ -123,8 +123,23 @@ in
   programs.fish = {
     enable = true;
     shellAliases = {
-      g = "git";
       cat = "bat";
+      g = "git";
+      ga = "git add";
+      gaa = "git add --all";
+      gc = "git commit";
+      gcp = "git commit --patch";
+      gd = "git diff";
+      gdc = "git diff --cached";
+      gp = "git push";
+      gpa = "git push --all";
+      gpl = "git pull";
+      gra = "git rebase --abort";
+      grc = "git rebase --continue";
+      grm = "git rebase -i master";
+      grs = "git rebase --skip";
+      gs = "git status";
+      gswm = "git switch master";
       ls = "eza";
     };
   };
