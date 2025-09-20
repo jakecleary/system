@@ -3,13 +3,14 @@ let
   unstable = import nixpkgs-unstable {
     system = pkgs.system;
   };
+  bio = import ./bio.nix;
 in
 {
   # The latest version as of time of me setting this up
   home.stateVersion = "24.05";
 
-  home.username = "jake";
-  home.homeDirectory = "/Users/jake";
+  home.username = bio.system.username;
+  home.homeDirectory = bio.system.homeDirectory;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -61,14 +62,14 @@ in
   # Configure git
   programs.git = {
     enable = true;
-    userName = "Jake Cleary";
-    userEmail = "shout@jakecleary.net";
+    userName = bio.persona.name;
+    userEmail = bio.persona.email;
     signing = {
       signByDefault = true;
-      key = "6192E5CC28B8FA7EF5F3775F37265B1E496C92A2";
+      key = bio.persona.signingKey;
     };
     extraConfig = {
-      github.user = "jakecleary";
+      github.user = bio.persona.github;
       init = { defaultBranch = "master"; };
       rebase = {
         autoStash = true;
@@ -94,7 +95,7 @@ in
   programs.gpg = {
     enable = true;
     settings = {
-      default-key = "6192E5CC28B8FA7EF5F3775F37265B1E496C92A2";
+      default-key = bio.persona.signingKey;
     };
   };
 
@@ -201,7 +202,7 @@ in
   #
   # or
   #
-  #  /etc/profiles/per-user/jake/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/${bio.system.username}/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {

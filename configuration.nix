@@ -3,6 +3,7 @@ let
   unstable = import inputs.nixpkgs-unstable {
     system = pkgs.system;
   };
+  bio = import ./bio.nix;
 in
 {
   # Allow unfree pkgs
@@ -115,7 +116,7 @@ in
   # This hould allow us to avoid a logout/login cycle
 
   system.activationScripts.postActivation.text = ''
-    sudo -u jake /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    sudo -u ${bio.system.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # Other
@@ -132,14 +133,14 @@ in
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Setup user with fish shell
-  users.users.jake = {
-    uid = 501;
-    name = "jake";
-    home = "/Users/jake";
+  users.users.${bio.system.username} = {
+    uid = bio.system.uid;
+    name = bio.system.username;
+    home = bio.system.homeDirectory;
     shell = pkgs.fish;
   };
-  users.knownUsers = ["jake"];
-  system.primaryUser = "jake";
+  users.knownUsers = [bio.system.username];
+  system.primaryUser = bio.system.username;
 
   # Shells
   ########

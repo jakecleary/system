@@ -55,7 +55,11 @@
     nixpkgs-unstable,
     self,
     ...
-  }: {
+  }: 
+  let
+    bio = import ./bio.nix;
+  in
+  {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mini
     darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
@@ -70,7 +74,7 @@
         {
           nix-homebrew = {
             enable = true;
-            user = "jake";
+            user = bio.system.username;
             enableRosetta = true;
             mutableTaps = false;
             taps = {
@@ -85,7 +89,7 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.jake = import ./home.nix;
+          home-manager.users.${bio.system.username} = import ./home.nix;
           home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable; };
         }
       ];
