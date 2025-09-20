@@ -13,8 +13,7 @@ in
 
   environment.systemPackages = with pkgs;
   [
-    zsh
-    vim
+    # Essential system tools only
   ];
 
   # System wide homebrew packages
@@ -146,9 +145,7 @@ in
   
   # Add shells installed by nix to /etc/shells file
   environment.shells = [
-    pkgs.bashInteractive
     pkgs.fish
-    pkgs.zsh
   ];
 
   # Make Fish the default shell
@@ -156,6 +153,4 @@ in
   programs.fish.useBabelfish = true;
   programs.fish.babelfishPackage = pkgs.babelfish;
 
-  # Install and setup ZSH to work with nix(-darwin) as well
-  programs.zsh.enable = true;
 }
