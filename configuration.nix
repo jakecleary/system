@@ -114,8 +114,8 @@ in
 
   # This hould allow us to avoid a logout/login cycle
 
-  system.activationScripts.postUserActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  system.activationScripts.postActivation.text = ''
+    sudo -u jake /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # Other
