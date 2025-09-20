@@ -1,0 +1,17 @@
+# Shell configuration
+shell-integration = fish
+
+# Font configuration
+font-family = Hack
+font-size = 18
+# adjust-cell-height = 125%
+
+# Theme configuration - automatic light/dark switching
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+
+# Window configuration
+window-decoration = true
+macos-non-native-fullscreen = true
+
+# Performance
+font-feature = -liga
