@@ -139,6 +139,7 @@ in
     shell = pkgs.fish;
   };
   users.knownUsers = ["jake"];
+  system.primaryUser = "jake";
 
   # Shells
   ########
