@@ -33,6 +33,7 @@ in
     nerd-fonts.fira-code
     nerd-fonts.hack
     bat
+    claude-code
     discord
     eza
     fish
