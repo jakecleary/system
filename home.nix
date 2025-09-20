@@ -43,6 +43,7 @@ in
     gnupg
     helix
     mas
+    mise
     neofetch
     obsidian
     pinentry_mac
@@ -60,6 +61,7 @@ in
   home.file = {
     # Ghostty configuration
     ".config/ghostty/config".source = ./dotfiles/.config/ghostty/config;
+    ".config/mise/config.toml".source = ./dotfiles/.config/mise/config.toml;
   };
 
   # Configure git
