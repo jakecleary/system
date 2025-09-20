@@ -57,9 +57,7 @@ in
   ];
 
   # Manage dotfiles.
-  # (The primary way to manage plain files is through 'home.file'.)
   home.file = {
-    # Ghostty configuration
     ".config/ghostty/config".source = ./dotfiles/.config/ghostty/config;
     ".config/mise/config.toml".source = ./dotfiles/.config/mise/config.toml;
   };
@@ -184,6 +182,9 @@ in
     enable = true;
   };
 
+  programs.mise = {
+    enable = true;
+  };
 
   programs.vscode = {
     enable = true;
