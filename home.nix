@@ -70,9 +70,23 @@ in
     extraConfig = {
       github.user = "jakecleary";
       init = { defaultBranch = "master"; };
+      rebase = {
+        autoStash = true;
+        updateRefs = true;
+      };
+      merge = {
+        conflictStyle = "diff3";
+      };
+      rerere = {
+        enabled = true;
+      };
     };
     aliases = {
       uncommit = "reset HEAD^";
+      stack-rebase = "rebase --update-refs";
+      stack-fixup = "commit --fixup=HEAD";
+      stack-autosquash = "rebase --autosquash --update-refs";
+      parent = "show-branch --merge-base";
     };
     diff-so-fancy.enable = true;
   };
