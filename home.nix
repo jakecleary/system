@@ -50,6 +50,8 @@ in
     starship
     vscode
     zoxide
+  ] ++ [
+    unstable.msedit
   ];
 
   # Manage dotfiles.
@@ -206,7 +208,7 @@ in
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "${unstable.msedit}/bin/edit";
   };
 
   # Custom PATH
