@@ -105,7 +105,7 @@ in
         email = bio.persona.email;
       };
       signing = {
-        sign-all = true;
+        behavior = "own";
         backend = "gpg";
         key = bio.persona.signingKey;
       };
