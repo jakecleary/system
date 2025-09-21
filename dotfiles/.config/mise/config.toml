@@ -1,2 +1,6 @@
 [tools]
 gleam = "latest"
+
+[settings]
+experimental = true
+lockfile = true
