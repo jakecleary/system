@@ -1,18 +1,21 @@
-{ pkgs, inputs, config, lib, ... }:
+{ inputs, config, lib, nixpkgsConfig, ... }:
 let
+  stable = import inputs.nixpkgs {
+    system = "aarch64-darwin";
+    config = nixpkgsConfig;
+  };
   unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
+    system = stable.system;
+    config = nixpkgsConfig;
   };
   bio = import ./bio.nix;
 in
 {
-  # Allow unfree pkgs
-  nixpkgs.config.allowUnfree = true;
 
   # System wide nixpkgs packages
   ##############################
 
-  environment.systemPackages = with pkgs;
+  environment.systemPackages = with stable;
   [
     # Essential system tools only
   ];
@@ -136,7 +139,7 @@ in
     uid = bio.system.uid;
     name = bio.system.username;
     home = bio.system.homeDirectory;
-    shell = pkgs.fish;
+    shell = stable.fish;
   };
   users.knownUsers = [bio.system.username];
   system.primaryUser = bio.system.username;
@@ -146,12 +149,12 @@ in
   
   # Add shells installed by nix to /etc/shells file
   environment.shells = [
-    pkgs.fish
+    stable.fish
   ];
 
   # Make Fish the default shell
   programs.fish.enable = true;
   programs.fish.useBabelfish = true;
-  programs.fish.babelfishPackage = pkgs.babelfish;
+  programs.fish.babelfishPackage = stable.babelfish;
 
 }

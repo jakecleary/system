@@ -58,6 +58,9 @@
   }: 
   let
     bio = import ./bio.nix;
+    nixpkgsConfig = {
+      allowUnfree = true;
+    };
   in
   {
     # Build darwin flake using:
@@ -68,6 +71,12 @@
       
       modules = 
       [ 
+        {
+          nixpkgs.config = nixpkgsConfig;
+        }
+        
+        { _module.args = { inherit nixpkgsConfig; }; }
+        
         ./configuration.nix
 
         nix-homebrew.darwinModules.nix-homebrew
@@ -90,7 +99,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${bio.system.username} = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable; };
+          home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable nixpkgsConfig; };
         }
       ];
       inputs = { inherit nix-darwin nixpkgs nixpkgs-unstable; };

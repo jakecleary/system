@@ -1,7 +1,12 @@
-{ config, lib, pkgs, nixpkgs-unstable, nix-colors, ... }:
+{ config, lib, nixpkgs, nixpkgs-unstable, nix-colors, nixpkgsConfig, ... }:
 let
+  stable = import nixpkgs {
+    system = "aarch64-darwin";
+    config = nixpkgsConfig;
+  };
   unstable = import nixpkgs-unstable {
-    system = pkgs.system;
+    system = stable.system;
+    config = nixpkgsConfig;
   };
   bio = import ./bio.nix;
 in
@@ -29,32 +34,36 @@ in
   colorScheme = nix-colors.colorSchemes.gruvbox-dark-soft;
 
   # Packages
-  home.packages = with pkgs;
-  [
-    nerd-fonts.fira-code
-    nerd-fonts.hack
-    bat
-    claude-code
-    discord
-    eza
-    fish
-    gh
-    git
-    gnupg
-    helix
-    mas
-    mise
-    neofetch
-    obsidian
-    pinentry_mac
-    spotify
-    starship
-    tldr
-    vscode
-    zoxide
-  ] ++ [
-    unstable.msedit
+  home.packages = [
+    
+    # Fonts
+    stable.nerd-fonts.fira-code
+    stable.nerd-fonts.hack
+
+    # Tools/Utils
+    stable.bat
+    stable.eza
+    stable.fish
+    stable.gh
+    stable.git
+    stable.gnupg
+    stable.helix
     unstable.jujutsu
+    stable.mas
+    stable.mise
+    unstable.msedit
+    stable.neofetch
+    stable.pinentry_mac
+    stable.starship
+    stable.tldr
+    stable.zoxide
+
+    # Desktop Apps
+    stable.claude-code
+    stable.discord
+    stable.obsidian
+    stable.spotify
+    stable.vscode
   ];
 
   # Manage dotfiles.
@@ -127,7 +136,7 @@ in
       max-cache-ttl 7200
       max-cache-ttl-ssh 7200
       use-standard-socket
-      pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      pinentry-program ${stable.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
   '';
 
   programs.gh = {
@@ -200,9 +209,9 @@ in
         "editor.lineHeight" = 1.4;
       };
       extensions = [ 
-        pkgs.vscode-extensions.bbenoist.nix
-        pkgs.vscode-extensions.gleam.gleam
-        pkgs.vscode-extensions.tamasfe.even-better-toml
+        stable.vscode-extensions.bbenoist.nix
+        stable.vscode-extensions.gleam.gleam
+        stable.vscode-extensions.tamasfe.even-better-toml
       ];
     };
   };
