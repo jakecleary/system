@@ -212,6 +212,7 @@ in
         stable.vscode-extensions.bbenoist.nix
         stable.vscode-extensions.gleam.gleam
         stable.vscode-extensions.tamasfe.even-better-toml
+        unstable.vscode-extensions.anthropic.claude-code
       ];
     };
   };
