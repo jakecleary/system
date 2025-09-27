@@ -48,15 +48,15 @@ in
     stable.git
     stable.gnupg
     stable.helix
-    unstable.jujutsu
     stable.mas
-    stable.mise
-    unstable.msedit
     stable.neofetch
     stable.pinentry_mac
     stable.starship
     stable.tldr
     stable.zoxide
+    unstable.jujutsu
+    unstable.mise
+    unstable.msedit
 
     # Desktop Apps
     stable.claude-code
@@ -194,6 +194,7 @@ in
 
   programs.mise = {
     enable = true;
+    package = unstable.mise;
   };
 
   programs.vscode = {
