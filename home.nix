@@ -207,6 +207,10 @@ in
         "editor.fontFamily" = "Hack";
         "editor.fontSize" = 18;
         "editor.lineHeight" = 1.4;
+        "terminal.integrated.fontFamily" = "Hack";
+        "terminal.integrated.fontSize" = 18;
+        "terminal.integrated.lineHeight" = 1.4;
+        "terminal.integrated.fontWeight" = "normal";
       };
       extensions = [ 
         stable.vscode-extensions.bbenoist.nix
