@@ -39,6 +39,7 @@ in
       "raycast"
       "rekordbox"
       "sublime-merge"
+      "visual-studio-code"
       "whatsapp"
       "zoom"
     ];

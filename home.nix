@@ -63,7 +63,6 @@ in
     stable.discord
     stable.obsidian
     stable.spotify
-    stable.vscode
   ];
 
   # Manage dotfiles.
@@ -195,31 +194,6 @@ in
   programs.mise = {
     enable = true;
     package = unstable.mise;
-  };
-
-  programs.vscode = {
-    enable = true;
-    mutableExtensionsDir = false;
-    profiles.default = {
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
-      userSettings = {
-        "[nix]"."editor.tabSize" = 2;
-        "editor.fontFamily" = "Hack";
-        "editor.fontSize" = 18;
-        "editor.lineHeight" = 1.4;
-        "terminal.integrated.fontFamily" = "Hack";
-        "terminal.integrated.fontSize" = 18;
-        "terminal.integrated.lineHeight" = 1.4;
-        "terminal.integrated.fontWeight" = "normal";
-      };
-      extensions = [ 
-        stable.vscode-extensions.bbenoist.nix
-        stable.vscode-extensions.gleam.gleam
-        stable.vscode-extensions.tamasfe.even-better-toml
-        unstable.vscode-extensions.anthropic.claude-code
-      ];
-    };
   };
 
   programs.helix = {
