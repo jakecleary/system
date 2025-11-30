@@ -101,6 +101,10 @@ in
       stack-autosquash = "rebase --autosquash --update-refs";
       parent = "show-branch --merge-base";
     };
+    ignores = [
+      ".DS_Store"
+      "**/.claude/settings.local.json"
+    ];
     diff-so-fancy.enable = true;
   };
 
