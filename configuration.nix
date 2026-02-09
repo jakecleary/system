@@ -39,6 +39,7 @@ in
       "raycast"
       "rekordbox"
       "sublime-merge"
+      "tidal"
       "visual-studio-code"
       "whatsapp"
       "zoom"
