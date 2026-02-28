@@ -6,7 +6,6 @@
     ./modules/home/programs/developer.nix
     ./modules/home/programs/fish.nix
     ./modules/home/programs/gpg.nix
-    ./modules/home/programs/helix.nix
     ./modules/home/programs/shell.nix
     ./modules/home/programs/vcs.nix
   ];
