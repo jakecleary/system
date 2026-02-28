@@ -45,24 +45,15 @@ in
     stable.dog
     stable.dust
     stable.eza
-    stable.fish
-    stable.gh
-    stable.git
-    stable.gnupg
-    stable.helix
     stable.hyperfine
     stable.mas
     stable.neofetch
     stable.pinentry_mac
     stable.ripgrep
     stable.sd
-    stable.starship
     stable.tldr
     stable.tokei
     stable.xh
-    stable.zoxide
-    unstable.jujutsu
-    unstable.mise
     unstable.msedit
 
     # Desktop Apps
