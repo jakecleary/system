@@ -5,7 +5,7 @@ let
     config = nixpkgsConfig;
   };
   unstable = import nixpkgs-unstable {
-    system = stable.system;
+    system = stable.stdenv.hostPlatform.system;
     config = nixpkgsConfig;
   };
   bio = import ./bio.nix;
@@ -72,13 +72,15 @@ in
   # Configure git
   programs.git = {
     enable = true;
-    userName = bio.persona.name;
-    userEmail = bio.persona.email;
     signing = {
       signByDefault = true;
       key = bio.persona.signingKey;
     };
-    extraConfig = {
+    settings = {
+      user = {
+        name = bio.persona.name;
+        email = bio.persona.email;
+      };
       github.user = bio.persona.github;
       init = { defaultBranch = "master"; };
       rebase = {
@@ -91,19 +93,23 @@ in
       rerere = {
         enabled = true;
       };
-    };
-    aliases = {
-      uncommit = "reset HEAD^";
-      stack-rebase = "rebase --update-refs";
-      stack-fixup = "commit --fixup=HEAD";
-      stack-autosquash = "rebase --autosquash --update-refs";
-      parent = "show-branch --merge-base";
+      alias = {
+        uncommit = "reset HEAD^";
+        stack-rebase = "rebase --update-refs";
+        stack-fixup = "commit --fixup=HEAD";
+        stack-autosquash = "rebase --autosquash --update-refs";
+        parent = "show-branch --merge-base";
+      };
     };
     ignores = [
       ".DS_Store"
       "**/.claude/settings.local.json"
     ];
-    diff-so-fancy.enable = true;
+  };
+
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.jujutsu = {

@@ -5,7 +5,7 @@ let
     config = nixpkgsConfig;
   };
   unstable = import inputs.nixpkgs-unstable {
-    system = stable.system;
+    system = stable.stdenv.hostPlatform.system;
     config = nixpkgsConfig;
   };
   bio = import ./bio.nix;
