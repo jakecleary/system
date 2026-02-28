@@ -8,18 +8,22 @@
 
   programs.starship = {
     enable = true;
+    enableFishIntegration = true;
   };
 
   programs.zoxide = {
     enable = true;
+    enableFishIntegration = true;
   };
 
   programs.broot = {
     enable = true;
+    enableFishIntegration = true;
   };
 
   programs.mcfly = {
     enable = true;
+    enableFishIntegration = true;
   };
 
   programs.bottom = {
