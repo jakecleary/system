@@ -20,7 +20,7 @@ I use nix-darwin to manage my system. This allows me to rebuild the state as and
 
 - [x] Investigate nix-colors pkg (for settings consistent colours across apps)
 - [x] Update fish config with aliases (gp, gpa, gswm etc)
-- [ ] Get working with multiple users
+- [x] Get working with multiple users
 
 ## Setting up the system
 
