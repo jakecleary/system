@@ -10,7 +10,7 @@ in
 
     # Fonts
     pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.hack
+    pkgs.maple-mono.NF
 
     # Tools/Utils
     pkgs.bat
