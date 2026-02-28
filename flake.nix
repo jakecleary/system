@@ -4,12 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,12 +28,12 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
-    
+
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    
+
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -46,16 +46,16 @@
     home-manager,
     home-manager-unstable,
     homebrew-bundle,
-    homebrew-cask, 
-    homebrew-core, 
+    homebrew-cask,
+    homebrew-core,
     nix-colors,
-    nix-darwin, 
-    nix-homebrew, 
-    nixpkgs, 
+    nix-darwin,
+    nix-homebrew,
+    nixpkgs,
     nixpkgs-unstable,
     self,
     ...
-  }: 
+  }:
   let
     bio = import ./bio.nix;
     nixpkgsConfig = {
@@ -66,18 +66,19 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mini
     darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
-      
+
       system = "aarch64-darwin";
-      
-      modules = 
-      [ 
+
+      modules =
+      [
         {
           nixpkgs.config = nixpkgsConfig;
         }
-        
-        { _module.args = { inherit nixpkgsConfig; }; }
-        
+
+        { _module.args = { inherit nixpkgsConfig bio; }; }
+
         ./configuration.nix
+        ./configuration-personal.nix
 
         nix-homebrew.darwinModules.nix-homebrew
         {
@@ -98,11 +99,15 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${bio.system.username} = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable nixpkgsConfig; };
+          home-manager.users.${bio.system.username} = { imports = [ ./home-base.nix ./home-personal.nix ]; };
+          home-manager.extraSpecialArgs = { inherit nix-colors nixpkgs nixpkgs-unstable nixpkgsConfig bio; };
         }
       ];
       inputs = { inherit nix-darwin nixpkgs nixpkgs-unstable; };
     };
+
+    # Exported modules for use by other systems
+    homeManagerModules.default = ./home-base.nix;
+    darwinModules.configuration = ./configuration.nix;
   };
 }
