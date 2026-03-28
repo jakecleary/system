@@ -13,7 +13,6 @@
       default-cache-ttl-ssh 600
       max-cache-ttl 7200
       max-cache-ttl-ssh 7200
-      use-standard-socket
       pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
   '';
 }
