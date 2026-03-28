@@ -25,7 +25,6 @@
 
   # Manage dotfiles.
   home.file = {
-    ".config/mise/config.toml".source = ./dotfiles/.config/mise/config.toml;
     "CLAUDE.md".source = ./dotfiles/CLAUDE.md;
   };
 

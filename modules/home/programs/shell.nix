@@ -13,6 +13,15 @@
     };
   };
 
+  programs.mise = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      experimental = true;
+      lockfile = true;
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
