@@ -8,7 +8,6 @@
     brews = [];
     casks = [
       "freedom"
-      "ghostty"
       "google-chrome"
       "raycast"
       "sublime-merge"

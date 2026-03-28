@@ -1,5 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.ghostty = {
+    enable = true;
+    package = pkgs.ghostty-bin;
+    enableFishIntegration = true;
+    settings = {
+        theme = "dark:Catppuccin Mocha,light:Catppuccin Latte";
+        font-family = "Maple Mono NF";
+        font-size = 18;
+        window-decoration = true;
+        macos-non-native-fullscreen = true;
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
