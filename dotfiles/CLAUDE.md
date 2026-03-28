@@ -3,7 +3,8 @@
 ## VCS
 
 - **Prefer Jujutsu over Git** , **Always use `jj` commands instead of `git` commands** unless explicitly asked otherwise, when working in repositories that have `.jj/` directories.
-    - Use `jj status`, `jj log`, `jj diff` instead of git equivalents when in jj repos
+- Use `jj status`, `jj log`, `jj diff` instead of git equivalents when in jj repos
+- Use `git tag -a -m "..."` for tagging, as jj does not support creating annotated tags
 
 ## Misc
 
