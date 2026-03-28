@@ -22,6 +22,8 @@ in
     };
   };
 
+  programs.jjui.enable = true;
+
   programs.git = {
     enable = true;
     signing = {
