@@ -16,7 +16,7 @@
   programs.mise = {
     enable = true;
     enableFishIntegration = true;
-    settings = {
+    globalConfig.settings = {
       experimental = true;
       lockfile = true;
     };

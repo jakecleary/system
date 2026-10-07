@@ -19,7 +19,7 @@ in
     pkgs.eza
     pkgs.hyperfine
     pkgs.mas
-    pkgs.neofetch
+    pkgs.fastfetch
     pkgs.pinentry_mac
     pkgs.ripgrep
     pkgs.sd
