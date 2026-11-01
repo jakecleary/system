@@ -7,6 +7,7 @@
     taps = builtins.attrNames config.nix-homebrew.taps;
     brews = [];
     casks = [
+      "claude"
       "freedom"
       "google-chrome"
       "raycast"
