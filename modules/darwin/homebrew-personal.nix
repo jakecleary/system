@@ -5,6 +5,7 @@
     "onedrive"
     "pocket-casts"
     "rekordbox"
+    "spotify"
     "whatsapp"
     "zoom"
   ];
